@@ -1,0 +1,38 @@
+<div class="p-5">
+    <div class="row">
+        <div class="text-center">
+            <h1 class="h4 text-gray-900 mb-4">Register, please put your data.</h1>
+        </div>
+    </div>
+    <form [formGroup]="reactiveForm" (ngSubmit)="register()" novalidate>
+        <div class="row">
+        <div class="form-group">
+            <input 
+                    formControlName="name" 
+                    [(ngModel)]="registerModel.name" 
+                    type="text" class="form-control form-control-user"
+                    placeholder="Name">
+        </div>
+        <div class="form-group mt-2">
+            <input 
+                formControlName="email" 
+                [(ngModel)]="registerModel.email" 
+                type="email" 
+                class="form-control form-control-user"
+                placeholder="Email...">
+        </div>
+        <div class="form-group mt-2">
+            <input  formControlName="password" [(ngModel)]="registerModel.password" type="password" class="form-control form-control-user" placeholder="Password">
+        </div>
+        </div>
+        <div class="mt-4 text-center">
+            <button *ngIf="!isWaiting" type="submit" class="btn btn-primary btn-user btn-block">
+                Register user
+            </button>
+            <app-spinner *ngIf="isWaiting"></app-spinner>
+        </div>
+    </form>
+    <div class="text-center mt-4">
+        <a class="small" (click)="swithRegister(false)">Go login!</a>
+    </div>
+</div>

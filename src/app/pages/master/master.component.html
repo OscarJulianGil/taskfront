@@ -1,0 +1,25 @@
+
+<div class="container">
+
+    <!-- Outer Row -->
+    <div class="row justify-content-center">
+        <div class="col-xl-12 col-lg-12 col-md-10">
+            <div class="card o-hidden shadow-lg my-2">
+                <div class="card-body p-0">
+                    <!-- Nested Row within Card Body -->
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <app-tabletask [reload]="reloadTable"></app-tabletask>
+                        </div>
+                        <div class="col-lg-6">
+                            <app-registertask (itemRegistered)="registedEvent($event)"></app-registertask>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

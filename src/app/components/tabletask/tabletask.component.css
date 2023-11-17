@@ -1,0 +1,11 @@
+.iconSize{
+    font-size: 20px;
+    cursor:pointer;
+    color: red;
+}
+
+.iconSizeCompleted{
+    font-size: 20px;
+    cursor:pointer;
+    color: green;
+}

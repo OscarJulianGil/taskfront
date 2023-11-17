@@ -1,0 +1,53 @@
+<div class="p-2">
+<div class="row">
+    <p class="h6">New task</p>
+</div>
+<hr>
+<form [formGroup]="reactiveForm" (ngSubmit)="registerTask()" novalidate>
+
+<div class="row mt-4">
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Name</label>
+        <input formControlName="name" required [(ngModel)]="taskModel.taskName" type="text" class="form-control" placeholder="Type the task name">
+       
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+        <textarea formControlName="description" required [(ngModel)]="taskModel.description" class="form-control" rows="3"></textarea>
+    </div>
+
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Category</label>
+        <select formControlName="category" #category (change)="onChange($event,category.value)" class="form-select">
+            <option selected>Select category</option>
+            <option *ngFor="let item of categories.data" value="{{item.id}}">{{ item.value }}</option>
+          </select>
+    </div>
+    
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Date</label>
+		<div class="input-group">
+           
+			<input
+                readonly
+                formControlName="date"
+				class="form-control"
+				placeholder="yyyy-mm-dd"
+				name="dp"
+				[(ngModel)]="dateModel"
+				ngbDatepicker
+				#d="ngbDatepicker"
+			/>
+			<button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
+                <ng-icon class="iconSize" name="heroCalendarDays"></ng-icon>
+            </button>
+		</div>
+	</div>
+   
+    <div class="mb-3 center">
+        <button *ngIf="!isWaiting" type="submit" class="btn btn-primary">Register</button>
+        <app-spinner  *ngIf="isWaiting"></app-spinner>
+    </div>
+</div>
+</form>
+</div>

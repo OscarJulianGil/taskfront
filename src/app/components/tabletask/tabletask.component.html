@@ -1,0 +1,48 @@
+<div class="p-2">
+<div class="row">
+    <p class="h6">My Task(s)</p>
+</div>
+<hr>
+<div class="row">
+    <div class="col-12">
+        <div class="input-group">
+            <select #category (change)="onChange($event,category.value)" class="form-select">
+                <option selected value="">Choose category...</option>
+                <option *ngFor="let item of categories.data" value="{{item.id}}">{{ item.value }}</option>
+            </select>
+        </div>
+    </div>
+</div>
+<div class="row mt-4">
+    <div class="col-12">
+    <div *ngIf="myTasks.data.length > 0" class="response">
+        <table class="table table table-bordered border-primary">
+            <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Category</th>
+                <th scope="col">Date Expire</th>
+                <th scope="col">State</th>
+                <th scope="col">Options</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of myTasks.data">
+                    <td>{{item.name}}</td>
+                    <td>{{item.category}}</td>
+                    <td>{{item.dateFinish}}</td>
+                    <td >{{item.isCompleted == false ? 'Pending' : 'Completed'}}</td>
+                    <td>
+                        <ng-icon *ngIf="!item.isCompleted" title="Delete" (click)="deleteTask(item.id)" class="iconSize" name="heroTrash"></ng-icon>
+                        <ng-icon *ngIf="!item.isCompleted" title="Completed" (click)="completeTask(item.id)" class="iconSizeCompleted" name="heroCheckCircle"></ng-icon>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="myTasks.data.length <= 0" class="alert alert-danger" role="alert">
+        you dont have tasks registered.
+    </div>
+</div>
+</div>
+</div>
