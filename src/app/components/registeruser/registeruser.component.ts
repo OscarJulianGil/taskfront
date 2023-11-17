@@ -45,7 +45,7 @@ export class RegisteruserComponent {
          }
       },
       error:(e) => {
-        
+        this.isWaiting = false;
       },
       complete:()=>{
         this.isWaiting = false;

@@ -45,7 +45,9 @@ export class TabletaskComponent implements OnInit, OnChanges {
           this.categories = data;
          }
       },
-      error:(e) => {},
+      error:(e) => {
+       
+      },
       complete:()=>{}
     })
   }
