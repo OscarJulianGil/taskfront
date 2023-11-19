@@ -1,3 +1,3 @@
 export  const enviroment = {
-    urlApiServiceDesk :'https://localhost:7271/api'
+    urlApiServiceDesk :'https://api-tasks-og.azurewebsites.net/api'
 }
